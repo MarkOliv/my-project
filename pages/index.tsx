@@ -64,60 +64,66 @@ const RedefinePassword = () => {
 
   return (
     <div className="h-screen p-2">
-      {done && <div>teste</div>}
-      <div>
-        <div className="flex flex-col ion-padding h-screen">
-          <p className="text-sm text-gray-500 my-10">
-            Preencha os campos abaixo.
-          </p>
-          <form onSubmit={handleSubmit(handleRedefinePassword)}>
-            <label className="text-gray-600">Digite sua nova senha</label>
-
-            <div className="flex items-center bg-gray-200 rounded-xl p-3 my-3">
-              <input
-                className="bg-transparent focus:outline-none"
-                type="password"
-                placeholder="**********"
-                {...register("password")}
-              />
-              {/* <IonIcon className="w-6 h-6 text-green-700 " src={eye} /> */}
-            </div>
-            <ErrorMessage
-              errors={errors}
-              name="password"
-              as={<div style={{ color: "red" }} />}
-            />
-
-            <label className="text-gray-600">Repita sua nova senha</label>
-
-            <div className="flex items-center bg-gray-200 rounded-xl p-3 my-3">
-              <input
-                className="bg-transparent focus:outline-none"
-                type="password"
-                placeholder="**********"
-                {...register("confirmPassword")}
-              />
-              {/* <IonIcon className="w-6 h-6 text-green-700 " src={eye} /> */}
-            </div>
-            <ErrorMessage
-              errors={errors}
-              name="confirmPassword"
-              as={<div style={{ color: "red" }} />}
-            />
-
-            <button
-              type="submit"
-              className="p-3 w-full rounded-xl text-white my-3 bg-gradient-to-l from-green-800 to-green-700"
-            >
-              PRONTO
-            </button>
-          </form>
-
-          <button className="p-3 w-full rounded-xl bg-red-500 text-white my-3">
-            CANCELAR
-          </button>
+      {done && (
+        <div className="p-5 rounded-3xl flex justify-center items-center text-black">
+          SENHA ALTERADA
         </div>
-      </div>
+      )}
+      {!done && (
+        <div>
+          <div className="flex flex-col ion-padding h-screen">
+            <p className="text-sm text-gray-500 my-10">
+              Preencha os campos abaixo.
+            </p>
+            <form onSubmit={handleSubmit(handleRedefinePassword)}>
+              <label className="text-gray-600">Digite sua nova senha</label>
+
+              <div className="flex items-center bg-gray-200 rounded-xl p-3 my-3">
+                <input
+                  className="bg-transparent focus:outline-none"
+                  type="password"
+                  placeholder="**********"
+                  {...register("password")}
+                />
+                {/* <IonIcon className="w-6 h-6 text-green-700 " src={eye} /> */}
+              </div>
+              <ErrorMessage
+                errors={errors}
+                name="password"
+                as={<div style={{ color: "red" }} />}
+              />
+
+              <label className="text-gray-600">Repita sua nova senha</label>
+
+              <div className="flex items-center bg-gray-200 rounded-xl p-3 my-3">
+                <input
+                  className="bg-transparent focus:outline-none"
+                  type="password"
+                  placeholder="**********"
+                  {...register("confirmPassword")}
+                />
+                {/* <IonIcon className="w-6 h-6 text-green-700 " src={eye} /> */}
+              </div>
+              <ErrorMessage
+                errors={errors}
+                name="confirmPassword"
+                as={<div style={{ color: "red" }} />}
+              />
+
+              <button
+                type="submit"
+                className="p-3 w-full rounded-xl text-white my-3 bg-gradient-to-l from-green-800 to-green-700"
+              >
+                PRONTO
+              </button>
+            </form>
+
+            <button className="p-3 w-full rounded-xl bg-red-500 text-white my-3">
+              CANCELAR
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
